@@ -1,0 +1,51 @@
+.list-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 20px;
+  list-style-type: none;
+  width: 100%;
+}
+
+.title {
+  color: #000000;
+  font-size: 16px;
+  font-family: 'Roboto';
+  width: 60%;
+}
+
+.del-button {
+  border-radius: 10px;
+  width: 100px;
+  height: 40px;
+  color: #ff0b37;
+  border-width: 2px;
+  border-color: #ff0b37;
+  border-style: solid;
+  margin-right: 10px;
+}
+
+.edit-save-button {
+  border-radius: 10px;
+  width: 100px;
+  height: 40px;
+  color: blueviolet;
+  border-width: 2px;
+  border-color: blueviolet;
+  border-style: solid;
+}
+
+.edit-title-input {
+  width: 60%;
+  border: 1px solid black;
+  font-size: 16px;
+  font-family: 'Roboto';
+  color: black;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.todo-completed {
+  text-decoration: line-through;
+}
