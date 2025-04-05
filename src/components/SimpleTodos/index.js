@@ -55,35 +55,55 @@ class SimpleTodos extends Component {
 
   addButtonClicked = () => {
     const {newTodoInput, todosList} = this.state
+    const newTodoInputList = newTodoInput.split(" ")
+    const reversedNewTodosList = newTodoInputList.reverse()
+    const wordArray = reversedNewTodosList.slice(1,reversedNewTodosList.length)
+    const actualWordArray = wordArray.reverse()
+    const word = actualWordArray.join(" ")
+    if (!isNaN(reversedNewTodosList[0])) {
+      let startId = todosList.length + 1
+      let newTodos = []
+      for (let i=1;i<=parseInt(reversedNewTodosList[0]);i++) {
+        let newTodo = {id:i+startId,title:word}
+        console.log(newTodo)
+        newTodos.push(newTodo)
+      }
+      this.setState(prevState => ({
+        todosList:[...prevState.todosList,...newTodos],
+        newTodoInput:''
+      }))
+    } 
+    else {
     const newTodo = {id: todosList.length + 1, title: newTodoInput}
     this.setState(prevState => ({
       todosList: [...prevState.todosList, newTodo],
       newTodoInput: '',
     }))
+    }
   }
 
   render() {
     const {todosList, newTodoInput} = this.state
     return (
-      <div className='bg-container'>
-        <div className='todo-container'>
-          <h1 className='heading'>Simple Todos</h1>
-          <div className='input-todo-container'>
+      <div className="bg-container">
+        <div className="todo-container">
+          <h1 className="heading">Simple Todos</h1>
+          <div className="input-todo-container">
             <input
-              type='text'
+              type="text"
               value={newTodoInput}
-              className='todo-input'
+              className="todo-input"
               onChange={this.changeInputTodo}
             />
             <button
-              type='button'
-              className='add-button'
+              type="button"
+              className="add-button"
               onClick={this.addButtonClicked}
             >
               Add
             </button>
           </div>
-          <ul className='list-container'>
+          <ul className="list-container">
             {todosList.map(item => (
               <TodoItem
                 key={item.id}

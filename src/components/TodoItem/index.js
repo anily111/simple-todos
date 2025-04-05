@@ -17,15 +17,14 @@ class TodoItem extends Component {
   }
 
   changeTodoCompleted = () => {
-    this.setState(prevState => ({isTodoCompleted:!prevState.isTodoCompleted}))
+    this.setState(prevState => ({isTodoCompleted: !prevState.isTodoCompleted}))
   }
 
   render() {
     const {editTitle, isEditClicked, isTodoCompleted} = this.state
     const {details, onClickEvent} = this.props
     const {id} = details
-    const todoCompled = isTodoCompleted
-      && 'todo-completed'
+    const todoCompled = isTodoCompleted && 'todo-completed'
     return (
       <li className="list-item">
         <input
